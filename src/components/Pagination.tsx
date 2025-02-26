@@ -14,22 +14,25 @@ interface PaginationProps {
   basePath: string;
 }
 
-export function StickyPagination({ currentPage, totalPages, basePath }: PaginationProps) {
-  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1)
-    .filter((page) => Math.abs(currentPage - page) <= 2);
+export function StickyPagination({
+  currentPage,
+  totalPages,
+  basePath,
+}: PaginationProps) {
+  const pageNumbers = Array.from(
+    { length: totalPages },
+    (_, i) => i + 1
+  ).filter((page) => Math.abs(currentPage - page) <= 2);
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-white shadow-md border-t z-50 p-4">
       <Pagination className="flex justify-center">
         <PaginationContent className="flex items-center gap-1">
-          {/* Previous Button */}
           {currentPage > 1 && (
             <PaginationItem>
               <PaginationPrevious href={`${basePath}/${currentPage - 1}`} />
             </PaginationItem>
           )}
-
-          {/* First Page & Ellipsis */}
           {currentPage > 3 && (
             <>
               <PaginationItem>
@@ -38,8 +41,6 @@ export function StickyPagination({ currentPage, totalPages, basePath }: Paginati
               {currentPage > 4 && <PaginationEllipsis />}
             </>
           )}
-
-          {/* Dynamic Page Numbers */}
           {pageNumbers.map((page) => (
             <PaginationItem key={page}>
               <PaginationLink
@@ -51,7 +52,6 @@ export function StickyPagination({ currentPage, totalPages, basePath }: Paginati
             </PaginationItem>
           ))}
 
-          {/* Last Page & Ellipsis */}
           {currentPage < totalPages - 2 && (
             <>
               {currentPage < totalPages - 3 && <PaginationEllipsis />}
@@ -63,7 +63,6 @@ export function StickyPagination({ currentPage, totalPages, basePath }: Paginati
             </>
           )}
 
-          {/* Next Button */}
           {currentPage < totalPages && (
             <PaginationItem>
               <PaginationNext href={`${basePath}/${currentPage + 1}`} />

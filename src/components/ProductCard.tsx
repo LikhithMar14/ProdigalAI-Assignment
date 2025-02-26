@@ -1,5 +1,10 @@
 import StarRating from "@/components/StarRating";
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -7,7 +12,6 @@ import { Product } from "@/types/product.types";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
       <CardHeader className="p-0">
         <div className="relative w-full h-48 overflow-hidden">

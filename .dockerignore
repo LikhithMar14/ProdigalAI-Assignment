@@ -1,0 +1,17 @@
+
+node_modules
+
+
+*.log
+
+
+dist
+build
+
+
+.env
+.env.local
+
+
+Dockerfile
+docker-compose.yml
