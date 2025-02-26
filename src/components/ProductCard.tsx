@@ -1,18 +1,18 @@
 import StarRating from "@/components/StarRating";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Product } from "@/types/product.types";
 
+const truncateText = (text: string, maxLength: number) => {
+  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+};
+
 const ProductCard = ({ product }: { product: Product }) => {
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
+      {/* Image and Category Badge */}
       <CardHeader className="p-0">
         <div className="relative w-full h-48 overflow-hidden">
           <Image
@@ -28,8 +28,12 @@ const ProductCard = ({ product }: { product: Product }) => {
           </Badge>
         </div>
       </CardHeader>
+
       <CardContent className="p-4">
         <h3 className="font-semibold text-sm line-clamp-1">{product.title}</h3>
+        <p className="text-xs text-muted-foreground mt-1">
+          {truncateText(product.description, 80)}
+        </p>
         <div className="flex justify-between items-center mt-2">
           <p className="font-bold text-sm">${product.price.toFixed(2)}</p>
           <div className="flex items-center gap-1">
@@ -40,6 +44,8 @@ const ProductCard = ({ product }: { product: Product }) => {
           </div>
         </div>
       </CardContent>
+
+
       <CardFooter className="p-4 pt-0 flex justify-end">
         <Button size="sm">Add to Cart</Button>
       </CardFooter>

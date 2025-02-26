@@ -1,5 +1,6 @@
 import { Product, ProductRawData } from "@/types/product.types";
 import SingleProductComponent from "@/components/SingleProductComponent";
+import BackToHome from "@/components/BackButton";
 
 const fetchProduct = async (id: string): Promise<Product | null> => {
   try {
@@ -52,7 +53,18 @@ const SingleProductPage = async ({
       </div>
     );
 
-  return <SingleProductComponent product={product} />;
+    return (
+      <div className="relative min-h-screen p-6">
+        <div className="mb-4">
+          <BackToHome />
+        </div>
+  
+        <SingleProductComponent product={product} />
+      </div>
+    );
 };
+
+
+
 
 export default SingleProductPage;
