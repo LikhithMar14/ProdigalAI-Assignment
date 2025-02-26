@@ -4,8 +4,9 @@ import Link from "next/link";
 import { StickyPagination } from "@/components/Pagination";
 import { redirect } from "next/navigation";
 import SearchBar from "@/components/SearchBar";
+import { pageSize } from "@/lib/constants";
 
-const pageSize = 6;
+
 
 export async function generateStaticParams() {
   const res = await fetch("https://fakestoreapi.com/products");
@@ -37,6 +38,7 @@ const PaginatedProductPage = async ({
   }
 
   const startIndex = (page - 1) * pageSize;
+  
   const products = rawProductsData
     .slice(startIndex, startIndex + pageSize)
     .map((product) => ({

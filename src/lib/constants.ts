@@ -268,3 +268,6 @@ export const mockData: Product[] = [
     },
   },
 ];
+
+
+export const pageSize = 6;
