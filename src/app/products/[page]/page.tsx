@@ -1,4 +1,4 @@
-import { Product, ProductRawData } from "@/types/product.types";
+import { ProductRawData } from "@/types/product.types";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { StickyPagination } from "@/components/Pagination";

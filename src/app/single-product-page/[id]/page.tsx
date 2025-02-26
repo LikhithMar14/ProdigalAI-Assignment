@@ -1,10 +1,5 @@
 import { Product, ProductRawData } from "@/types/product.types";
-import StarRating from "@/components/StarRating";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import Image from "next/image";
-import SingleProductComponent from "@/components/SingleProductPage";
+import SingleProductComponent from "@/components/SingleProductComponent";
 
 const fetchProduct = async (id: string): Promise<Product | null> => {
   try {
