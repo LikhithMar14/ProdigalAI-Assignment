@@ -12,6 +12,13 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  redirects: async () => [
+    {
+      source: "/",
+      destination: "/products/1",
+      permanent: true, 
+    },
+  ],
 
 };
 

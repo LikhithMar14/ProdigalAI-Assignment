@@ -58,7 +58,6 @@ const SingleProductPage = async ({
         <div className="mb-4">
           <BackToHome />
         </div>
-  
         <SingleProductComponent product={product} />
       </div>
     );
