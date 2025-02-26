@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Product } from "@/types/product.types";
-import Link from "next/link";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
